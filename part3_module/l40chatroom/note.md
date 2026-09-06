@@ -114,3 +114,29 @@ Use only the bundled file from the root page:
 Do not load files such as `dist/app.js` directly. If you run `tsc -w` for learning or type-checking, treat its emitted files as temporary compiler output and do not use them in the browser.
 
 ---
+
+### Firebase Subscription vs. SQL Connection
+
+**Core Purpose (The Similarity)**
+* Both serve as the **entry gateway/bridge** between your app and the database.
+* Both rely on an initial **network handshake** (authentication & security) to establish communication. Without either mechanism, your app cannot send or receive data.
+
+
+**Terminology**
+* **`onSnapshot()`**: The literal Firebase function you execute in code.
+* **Subscription**: The active, live real-time connection created when `onSnapshot()` runs.
+* **`unsubscribe()`**: The cleanup function returned by `onSnapshot()` used to close the connection.
+
+
+**Key Differences**
+
+| Feature | SQL Connection | Firebase Subscription (`onSnapshot`) |
+| :--- | :--- | :--- |
+| **Model** | **Pull** (Request-Response) | **Push** (Real-Time Event Stream) |
+| **Lifetime** | Short-lived (Executes a query, then closes or returns to a pool). | Long-lived (Keeps an active WebSocket connection open). |
+| **Responsibility** | **Your App** must manually ask for updates repeatedly. | **Firebase** automatically monitors changes and pushes updates to your app. |
+
+
+**Best Practice** : Clean up connections:** Always call `unsubscribe()` when leaving a page or unmounting a component to avoid memory leaks and unnecessary Firebase billing reads.
+
+---

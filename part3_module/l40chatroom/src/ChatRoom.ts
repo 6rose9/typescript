@@ -35,12 +35,12 @@ export class ChatRoom {
     }
 
     // get chat messages
-    getChats(callback: (data: ChatMessage) => void) {
+    getChats(callback: (chatDoc: ChatMessage) => void) {
         const qry = query(this.chats, where('room', '==', this.room));
         this.unsubscribe = onSnapshot(qry, (docSnap: any) => {
             docSnap.docChanges().forEach((item: any) => {
                 if (item.type === "added") {
-                    callback(item.doc.data);
+                    callback(item.doc.data());
                 }
             });
         });
