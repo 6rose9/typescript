@@ -1,4 +1,5 @@
 import { ChatMessage } from "./ChatRoom";
+import { formatDistance } from "date-fns";
 export class MessageUI {
     constructor(public ul: HTMLElement) {
 
@@ -10,9 +11,12 @@ export class MessageUI {
     }
 
     // render li
-    renderli(data: ChatMessage):void {
-        // const when = dateFns.formatDistance(dataobj.createdAt.toDate(), new Date(), { addSuffix: true }); // {addSuffix:true} = ago
-        const when: string = "";
+    renderli(data: ChatMessage): void {
+        // cdn
+        // const when = (window as any).dateFns.formatDistance(data.createdAt.toDate(), new Date(), { addSuffix: true }); // {addSuffix:true} = ago
+
+        // npm
+        const when = formatDistance(data.createdAt.toDate(), new Date(), { addSuffix: true });
         const htmllitag = `
             <li class="list-group-item">
                 <span class="username">${data.username}</span>

@@ -5,7 +5,7 @@ export interface ChatMessage {
     message: string;
     username: string;
     room: string;
-    createAt: Timestamp
+    createdAt: Timestamp
 }
 
 export class ChatRoom {
@@ -23,7 +23,7 @@ export class ChatRoom {
             message,
             username: this.username,
             room: this.room,
-            createAt: Timestamp.fromDate(now)
+            createdAt: Timestamp.fromDate(now)
         }
 
         try {
@@ -36,6 +36,7 @@ export class ChatRoom {
 
     // get chat messages
     getChats(callback: (chatDoc: ChatMessage) => void) {
+        // const qry = query(this.chats, where('room', '==', this.room), orderBy('createdAt'));
         const qry = query(this.chats, where('room', '==', this.room));
         this.unsubscribe = onSnapshot(qry, (docSnap: any) => {
             docSnap.docChanges().forEach((item: any) => {

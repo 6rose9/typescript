@@ -37,18 +37,18 @@ newchatform.addEventListener('submit', e => {
 });
 
 // change chat room
-// chatsidebar.addEventListener('click',e=>{
+chatsidebar.addEventListener('click',e=>{
 
-//     // if(e.target.tagName === "BUTTON"){
-//     //     // console.log("i am btn");
-//     //     // console.log(e.target.getAttribute('id'));
+    if(e.target instanceof HTMLButtonElement){
+        // console.log("i am btn");
+        // console.log(e.target.getAttribute('id'));
 
-//     //     messageuiObj.clearli();
-//     //     chatroomObj.updateRoom(e.target.getAttribute('id'));
-//     //     chatroomObj.getChats(data=>messageuiObj.renderli(data));
-//     // }
+        messageuiObj.clearli();
+        chatroomObj.updateRoom(e.target.getAttribute('id'));
+        chatroomObj.getChats(data=>messageuiObj.renderli(data));
+    }
 
-// }); 
+}); 
 
 
 // get chat & render li 
