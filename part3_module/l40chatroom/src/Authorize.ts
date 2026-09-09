@@ -1,4 +1,3 @@
-import { Timestamp } from "firebase/firestore";
 import { auth, provider } from "./firebaseConfig.js";
 import {
     createUserWithEmailAndPassword,
@@ -9,8 +8,12 @@ import {
     onAuthStateChanged,
     signInWithPopup
 } from "firebase/auth";
-import { id } from "date-fns/locale";
 
+export interface UserData{
+    fullname:string;
+    email:string;
+    password:string
+}
 export class Authorize {
     private defaultprofileimg;
     constructor() {
@@ -49,30 +52,28 @@ export class Authorize {
     }
 
     // Register user with fullname email & password
-    async registerUser(fullname: string, email: string, password: string) {
+    async registerUser(user: UserData) {
 
         try {
 
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
+            const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
+            const authUser = userCredential.user;
 
             // Update user profile 
-            await updateProfile(user, {
-                displayName: fullname,
+            await updateProfile(authUser, {
+                displayName: user.fullname,
                 photoURL: this.defaultprofileimg
-            })
-
+            });
 
             // Save username locally 
-            this.setLocalName(user);
-
+            this.setLocalName(authUser);
 
             // Redirect to index 
             // window.location.href = "../index.html";
 
             this.redirectTo("index.html");
 
-        } catch (error:any) {
+        } catch (error: any) {
             console.error("Error registering users : ", error);
             window.alert(error.message);
         }
