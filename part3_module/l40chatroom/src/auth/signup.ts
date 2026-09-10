@@ -6,9 +6,11 @@ const authObj = new Authorize();
 document.querySelector("#signupform").addEventListener("submit",(e)=>{
     e.preventDefault();
 
-    const fullname = (e.target as HTMLFormElement).fullname.value.trim();
-    const email = (e.target as HTMLFormElement).email.value.trim();
-    const password = (e.target as HTMLFormElement).password.value.trim();
+    const form = e.target as HTMLFormElement;
+
+    const fullname = form.fullname.value.trim();
+    const email = form.email.value.trim();
+    const password = form.password.value.trim();
 
     // console.log(fullname,email,password);
 

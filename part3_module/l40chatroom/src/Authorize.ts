@@ -1,4 +1,4 @@
-import { auth, provider } from "./firebaseConfig.js";
+import { auth, provider } from "./firebaseConfig";
 import {
     createUserWithEmailAndPassword,
     updateProfile,
@@ -18,41 +18,16 @@ export class Authorize {
     private defaultprofileimg;
     constructor() {
         this.defaultprofileimg = "https://static.thenounproject.com/png/65476-200.png";
-
-        // console.log(window.location.pathname); // /l52chatroomwithauth/index.html
-        // console.log(window.location.pathname.replace(/\/[^/]*$/,'/')); // /l52chatroomwithauth/ 
-        // console.log(window.location.pathname.replace(/[^/]*$/,'')); // /l52chatroomwithauth/
-
-        // ^ start with             = '/^abc/'    = abc...
-        // $ end with               = '/abc$/'    = ...abc
-        // * quantifier 0 or more   = '/a*/'      = aaa
-        // *$ qunaitfier + end      = '/[0-9]*$/' =
-
-        // console.log(/^a/.test("abc")); // true   => start with a
-        // console.log(/^a/.test("bca")); // false  => start with a
-
-        // console.log(/[^a]/.test("abc")); // true => b and c are not a
-        // console.log(/[^a]/.test("bc")); //  true => b and c are not a
-        // console.log(/[^a]/.test("bac")); // true => b and c are not a
-        // console.log(/[^a]/.test("bca")); // true => b and c are not a
-        // console.log(/[^a]/.test("a")); //   false => a
-        // console.log(/[^a]/.test("aa")); //   false => a
-
-        // $ ->  = until end of string 
-        // [^/]* = zero or more characters that are not /
-        // /[^/]*$/
-
-
     }
 
     // helper to redirect relative to current directory 
-    redirectTo(page: string) {
+    redirectTo(page: string):void {
         const base = window.location.pathname.replace(/\/[^/]*$/, '/');
         window.location.href = base + page;
     }
 
     // Register user with fullname email & password
-    async registerUser(user: UserData) {
+    async registerUser(user: UserData):Promise<void> {
 
         try {
 
@@ -81,7 +56,7 @@ export class Authorize {
     }
 
     // Login user with email & password
-    async loginUser(email:string, password:string) {
+    async loginUser(email:string, password:string):Promise<void> {
 
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -103,7 +78,7 @@ export class Authorize {
     }
 
     // Logout user
-    async logoutUser() {
+    async logoutUser():Promise<void> {
 
         try {
 
@@ -125,7 +100,7 @@ export class Authorize {
     }
 
     // Reset password
-    async resetPassword(email:string, msgElement:HTMLElement) {
+    async resetPassword(email:string, msgElement:HTMLElement):Promise<void> {
 
         try {
 
@@ -149,7 +124,7 @@ export class Authorize {
     }
 
     // Google Login
-    async googleLogin() {
+    async googleLogin():Promise<void> {
 
         try {
             const result = await signInWithPopup(auth, provider);
@@ -170,7 +145,7 @@ export class Authorize {
     }
 
     // Check if user is logged in
-    isLoggedIn() {
+    isLoggedIn():void {
 
         onAuthStateChanged(auth, (user) => {
             if (!user) {
@@ -184,7 +159,7 @@ export class Authorize {
     }
 
     // Get current user Info
-    getUser(callback: (user:any)=>void) {
+    getUser(callback: (user:any)=>void):void {
         onAuthStateChanged(auth, (user) => {
             if (user) callback(user);
         });
@@ -192,11 +167,11 @@ export class Authorize {
 
 
     // Local storage helper methods 
-    setLocalName(userdata:any) {
+    private setLocalName(userdata:any):void {
         localStorage.setItem("username", userdata.displayName || "Guest");
     }
 
-    unsetLocalName() {
+    private unsetLocalName():void {
         localStorage.removeItem("username");
     }
 

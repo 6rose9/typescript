@@ -140,3 +140,28 @@ Do not load files such as `dist/app.js` directly. If you run `tsc -w` for learni
 **Best Practice** : Clean up connections:** Always call `unsubscribe()` when leaving a page or unmounting a component to avoid memory leaks and unnecessary Firebase billing reads.
 
 ---
+
+        // console.log(window.location.pathname); // /l52chatroomwithauth/index.html
+        // console.log(window.location.pathname.replace(/\/[^/]*$/,'/')); // /l52chatroomwithauth/ 
+        // console.log(window.location.pathname.replace(/[^/]*$/,'')); // /l52chatroomwithauth/
+
+        // ^ start with             = '/^abc/'    = abc...
+        // $ end with               = '/abc$/'    = ...abc
+        // * quantifier 0 or more   = '/a*/'      = aaa
+        // *$ qunaitfier + end      = '/[0-9]*$/' =
+
+        // console.log(/^a/.test("abc")); // true   => start with a
+        // console.log(/^a/.test("bca")); // false  => start with a
+
+        // console.log(/[^a]/.test("abc")); // true => b and c are not a
+        // console.log(/[^a]/.test("bc")); //  true => b and c are not a
+        // console.log(/[^a]/.test("bac")); // true => b and c are not a
+        // console.log(/[^a]/.test("bca")); // true => b and c are not a
+        // console.log(/[^a]/.test("a")); //   false => a
+        // console.log(/[^a]/.test("aa")); //   false => a
+
+        // $ ->  = until end of string 
+        // [^/]* = zero or more characters that are not /
+        // /[^/]*$/
+
+---
