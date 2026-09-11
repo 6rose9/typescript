@@ -1,3 +1,25 @@
+### Best practical setup for this project
+
+For a real app, the best practical pattern is not "one giant shared bundle for every HTML file". In production, each page should usually have its own entry point and its own generated HTML.
+
+For this chatroom project, a practical setup is:
+
+- `index.html` for the chat app
+- `view/signin.html`, `view/signup.html`, `view/profile.html` for auth/profile pages
+- one TypeScript entry per page, for example:
+  - `src/app.ts` for chat page
+  - `src/auth/signin.ts` for sign in
+  - `src/auth/signup.ts` for sign up
+  - `src/auth/profile.ts` for profile
+- webpack builds one bundle for each page using `entry: { ... }`
+- `HtmlWebpackPlugin` generates the corresponding HTML files into `dist`
+- link pages using normal `<a href="./view/signin.html">` links
+- keep shared logic in reusable modules, not in a single global bundle
+
+This is more maintainable than forcing every page to import the same giant JS file. For a prototype or very small app, a single shared bundle is acceptable, but for real production work, one entry per page is the better architecture.
+
+---
+
 ### exports is not defined
 
 ``` text

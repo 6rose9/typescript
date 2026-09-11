@@ -1,3 +1,4 @@
+import "../css/style.css";
 import { ChatRoom, ChatMessage } from "./ChatRoom";
 import { MessageUI } from "./MessageUI";
 

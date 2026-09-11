@@ -2,11 +2,18 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/app.ts",
+  entry: {
+    app: "./src/app.ts",
+    checkauth: "./src/auth/checkauth.ts",
+    profile: "./src/auth/profile.ts",
+    resetpassword: "./src/auth/resetpassword.ts",
+    signup: "./src/auth/signup.ts",
+    signin: "./src/auth/signin.ts",
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
+    publicPath: "auto",
     clean: true,
   },
   resolve: {
@@ -27,7 +34,7 @@ module.exports = {
     ],
   },
   devServer: {
-    static: path.resolve(__dirname),
+    static: path.resolve(__dirname,"public"), // multi pages application, we need to set the static folder to public
     hot: true,
     port: 3000,
   },
