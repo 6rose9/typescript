@@ -128,39 +128,6 @@ eval("{/** @license\nCopyright The Closure Library Authors.\nSPDX-License-Identi
 
 /***/ },
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./css/style.css"
-/*!*************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./css/style.css ***!
-  \*************************************************************/
-(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `*{\n    box-sizing: border-box;\n}\n\n.chat-containers{\n    height: 80vh;\n    background-color: #fff;\n    border-radius: 1rem;\n\n    display: flex;\n    overflow: hidden;\n}\n\n.chat-sidebars{\n    min-width: 200px;\n    background-color: #03032f;\n}\n\n.chat-sidebars .btn{\n    background-color: #0d0d47;\n    color:#fff;\n    border:none;\n    text-align: left;\n    border-radius: 0.5rem;\n\n    padding: 10px;\n\n    transition: background-color 0.2s ease-in-out;\n}\n\n.chat-sidebars .btn:hover{\n    background-color: #17175c;\n}\n\n\n.chat-mains{\n    display: flex;\n    flex-direction: column;\n}\n\n.chat-contents{\n    background-color: #f9f9f9;\n}\n\n.chat-lists li{\n    background-color: #fff;\n    border-radius: 10px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.5);\n\n    padding: 8px;\n    margin-bottom: 8px;\n}\n\n\n.send-btns{\n    background-color: #03032f;\n    color:#fff;\n}\n\n.username{\n    font-weight: 600;\n    color:#0d0d47;\n}\n\n.time{\n    font-size: 11px;\n    color: #aaa;\n    margin-left: 5px;\n}\n\n.update-btns{\n    background-color: #03032f;\n    color:#fff;\n}\n\n.update-msg{\n    font-weight: 500;\n}`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://l40chatroom/./css/style.css?./node_modules/css-loader/dist/cjs.js\n}");
-
-/***/ },
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js"
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-(module) {
-
-"use strict";
-eval("{\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\nmodule.exports = function (cssWithMappingToString) {\n  var list = [];\n\n  // return the list of modules as css string\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n      content += cssWithMappingToString(item);\n      if (needLayer) {\n        content += \"}\";\n      }\n      if (item[2]) {\n        content += \"}\";\n      }\n      if (item[4]) {\n        content += \"}\";\n      }\n      return content;\n    }).join(\"\");\n  };\n\n  // import a list of modules into the list\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n    var alreadyImportedModules = {};\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n      list.push(item);\n    }\n  };\n  return list;\n};\n\n//# sourceURL=webpack://l40chatroom/./node_modules/css-loader/dist/runtime/api.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/css-loader/dist/runtime/noSourceMaps.js"
-/*!**************************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/noSourceMaps.js ***!
-  \**************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=webpack://l40chatroom/./node_modules/css-loader/dist/runtime/noSourceMaps.js?\n}");
-
-/***/ },
-
 /***/ "./node_modules/firebase/app/dist/index.cjs.js"
 /*!*****************************************************!*\
   !*** ./node_modules/firebase/app/dist/index.cjs.js ***!
@@ -194,83 +161,6 @@ eval("{\n\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\n\
 
 /***/ },
 
-/***/ "./css/style.css"
-/*!***********************!*\
-  !*** ./css/style.css ***!
-  \***********************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ \"./node_modules/style-loader/dist/runtime/styleDomAPI.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ \"./node_modules/style-loader/dist/runtime/insertBySelector.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ \"./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ \"./node_modules/style-loader/dist/runtime/insertStyleElement.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ \"./node_modules/style-loader/dist/runtime/styleTagTransform.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./style.css */ \"./node_modules/css-loader/dist/cjs.js!./css/style.css\");\n\n      \n      \n      \n      \n      \n      \n      \n      \n      \n\nvar options = {};\n\noptions.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());\noptions.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());\noptions.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, \"head\");\noptions.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());\noptions.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__[\"default\"], options);\n\n\n\n\n       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__[\"default\"] && _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__[\"default\"].locals ? _node_modules_css_loader_dist_cjs_js_style_css__WEBPACK_IMPORTED_MODULE_6__[\"default\"].locals : undefined);\n\n\n//# sourceURL=webpack://l40chatroom/./css/style.css?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js"
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\nvar stylesInDOM = [];\nfunction getIndexByIdentifier(identifier) {\n  var result = -1;\n  for (var i = 0; i < stylesInDOM.length; i++) {\n    if (stylesInDOM[i].identifier === identifier) {\n      result = i;\n      break;\n    }\n  }\n  return result;\n}\nfunction modulesToDom(list, options) {\n  var idCountMap = {};\n  var identifiers = [];\n  for (var i = 0; i < list.length; i++) {\n    var item = list[i];\n    var id = options.base ? item[0] + options.base : item[0];\n    var count = idCountMap[id] || 0;\n    var identifier = \"\".concat(id, \" \").concat(count);\n    idCountMap[id] = count + 1;\n    var indexByIdentifier = getIndexByIdentifier(identifier);\n    var obj = {\n      css: item[1],\n      media: item[2],\n      sourceMap: item[3],\n      supports: item[4],\n      layer: item[5]\n    };\n    if (indexByIdentifier !== -1) {\n      stylesInDOM[indexByIdentifier].references++;\n      stylesInDOM[indexByIdentifier].updater(obj);\n    } else {\n      var updater = addElementStyle(obj, options);\n      options.byIndex = i;\n      stylesInDOM.splice(i, 0, {\n        identifier: identifier,\n        updater: updater,\n        references: 1\n      });\n    }\n    identifiers.push(identifier);\n  }\n  return identifiers;\n}\nfunction addElementStyle(obj, options) {\n  var api = options.domAPI(options);\n  api.update(obj);\n  var updater = function updater(newObj) {\n    if (newObj) {\n      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {\n        return;\n      }\n      api.update(obj = newObj);\n    } else {\n      api.remove();\n    }\n  };\n  return updater;\n}\nmodule.exports = function (list, options) {\n  options = options || {};\n  list = list || [];\n  var lastIdentifiers = modulesToDom(list, options);\n  return function update(newList) {\n    newList = newList || [];\n    for (var i = 0; i < lastIdentifiers.length; i++) {\n      var identifier = lastIdentifiers[i];\n      var index = getIndexByIdentifier(identifier);\n      stylesInDOM[index].references--;\n    }\n    var newLastIdentifiers = modulesToDom(newList, options);\n    for (var _i = 0; _i < lastIdentifiers.length; _i++) {\n      var _identifier = lastIdentifiers[_i];\n      var _index = getIndexByIdentifier(_identifier);\n      if (stylesInDOM[_index].references === 0) {\n        stylesInDOM[_index].updater();\n        stylesInDOM.splice(_index, 1);\n      }\n    }\n    lastIdentifiers = newLastIdentifiers;\n  };\n};\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js"
-/*!********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
-  \********************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\nvar memo = {};\n\n/* istanbul ignore next  */\nfunction getTarget(target) {\n  if (typeof memo[target] === \"undefined\") {\n    var styleTarget = document.querySelector(target);\n\n    // Special case to return head of iframe instead of iframe itself\n    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n      try {\n        // This will throw an exception if access to iframe is blocked\n        // due to cross-origin restrictions\n        styleTarget = styleTarget.contentDocument.head;\n      } catch (e) {\n        // istanbul ignore next\n        styleTarget = null;\n      }\n    }\n    memo[target] = styleTarget;\n  }\n  return memo[target];\n}\n\n/* istanbul ignore next  */\nfunction insertBySelector(insert, style) {\n  var target = getTarget(insert);\n  if (!target) {\n    throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.\");\n  }\n  target.appendChild(style);\n}\nmodule.exports = insertBySelector;\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/insertBySelector.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js"
-/*!**********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
-  \**********************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\n/* istanbul ignore next  */\nfunction insertStyleElement(options) {\n  var element = document.createElement(\"style\");\n  options.setAttributes(element, options.attributes);\n  options.insert(element, options.options);\n  return element;\n}\nmodule.exports = insertStyleElement;\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/insertStyleElement.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js"
-/*!**********************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
-  \**********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("{\n\n/* istanbul ignore next  */\nfunction setAttributesWithoutAttributes(styleElement) {\n  var nonce =  true ? __webpack_require__.nc : 0;\n  if (nonce) {\n    styleElement.setAttribute(\"nonce\", nonce);\n  }\n}\nmodule.exports = setAttributesWithoutAttributes;\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js"
-/*!***************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
-  \***************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj) {\n  var css = \"\";\n  if (obj.supports) {\n    css += \"@supports (\".concat(obj.supports, \") {\");\n  }\n  if (obj.media) {\n    css += \"@media \".concat(obj.media, \" {\");\n  }\n  var needLayer = typeof obj.layer !== \"undefined\";\n  if (needLayer) {\n    css += \"@layer\".concat(obj.layer.length > 0 ? \" \".concat(obj.layer) : \"\", \" {\");\n  }\n  css += obj.css;\n  if (needLayer) {\n    css += \"}\";\n  }\n  if (obj.media) {\n    css += \"}\";\n  }\n  if (obj.supports) {\n    css += \"}\";\n  }\n  var sourceMap = obj.sourceMap;\n  if (sourceMap && typeof btoa !== \"undefined\") {\n    css += \"\\n/*# sourceMappingURL=data:application/json;base64,\".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), \" */\");\n  }\n\n  // For old IE\n  /* istanbul ignore if  */\n  options.styleTagTransform(css, styleElement, options.options);\n}\nfunction removeStyleElement(styleElement) {\n  // istanbul ignore if\n  if (styleElement.parentNode === null) {\n    return false;\n  }\n  styleElement.parentNode.removeChild(styleElement);\n}\n\n/* istanbul ignore next  */\nfunction domAPI(options) {\n  if (typeof document === \"undefined\") {\n    return {\n      update: function update() {},\n      remove: function remove() {}\n    };\n  }\n  var styleElement = options.insertStyleElement(options);\n  return {\n    update: function update(obj) {\n      apply(styleElement, options, obj);\n    },\n    remove: function remove() {\n      removeStyleElement(styleElement);\n    }\n  };\n}\nmodule.exports = domAPI;\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/styleDomAPI.js?\n}");
-
-/***/ },
-
-/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js"
-/*!*********************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
-  \*********************************************************************/
-(module) {
-
-"use strict";
-eval("{\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://l40chatroom/./node_modules/style-loader/dist/runtime/styleTagTransform.js?\n}");
-
-/***/ },
-
 /***/ "./src/ChatRoom.ts"
 /*!*************************!*\
   !*** ./src/ChatRoom.ts ***!
@@ -278,7 +168,7 @@ eval("{\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleEle
 (__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("{\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ChatRoom = void 0;\nconst firebaseConfig_1 = __webpack_require__(/*! ./firebaseConfig */ \"./src/firebaseConfig.ts\");\nconst firestore_1 = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/index.cjs.js\");\nclass ChatRoom {\n    constructor(room, username) {\n        this.room = room;\n        this.username = username;\n        this.chats = (0, firestore_1.collection)(firebaseConfig_1.db, \"chats\");\n        this.unsubscribe = null;\n    }\n    addChat(message) {\n        return __awaiter(this, void 0, void 0, function* () {\n            const now = new Date();\n            const chatdata = {\n                message,\n                username: this.username,\n                room: this.room,\n                createdAt: firestore_1.Timestamp.fromDate(now)\n            };\n            try {\n                yield (0, firestore_1.addDoc)(this.chats, chatdata);\n            }\n            catch (error) {\n                console.error(\"Error adding chat:\", error);\n                throw error;\n            }\n        });\n    }\n    getChats(callback) {\n        const qry = (0, firestore_1.query)(this.chats, (0, firestore_1.where)('room', '==', this.room));\n        this.unsubscribe = (0, firestore_1.onSnapshot)(qry, (docSnap) => {\n            docSnap.docChanges().forEach((item) => {\n                if (item.type === \"added\") {\n                    callback(item.doc.data());\n                }\n            });\n        });\n    }\n    updateRoom(room) {\n        this.room = room;\n        if (this.unsubscribe) {\n            this.unsubscribe();\n        }\n    }\n    updateName(username) {\n        this.username = username;\n        localStorage.setItem(\"username\", username);\n    }\n}\nexports.ChatRoom = ChatRoom;\n\n\n//# sourceURL=webpack://l40chatroom/./src/ChatRoom.ts?\n}");
+eval("{\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ChatRoom = void 0;\nconst firebaseConfig_1 = __webpack_require__(/*! ./firebaseConfig */ \"./src/firebaseConfig.ts\");\nconst firestore_1 = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/index.cjs.js\");\nclass ChatRoom {\n    constructor(room, username) {\n        this.room = room;\n        this.username = username;\n        this.chats = (0, firestore_1.collection)(firebaseConfig_1.db, \"chats\");\n        this.unsubscribe = null;\n    }\n    getErrorMessage(error) {\n        return error instanceof Error ? error.message : \"Unknown Error\";\n    }\n    addChat(message) {\n        return __awaiter(this, void 0, void 0, function* () {\n            const now = new Date();\n            const chatdata = {\n                message,\n                username: this.username,\n                room: this.room,\n                createdAt: firestore_1.Timestamp.fromDate(now)\n            };\n            try {\n                yield (0, firestore_1.addDoc)(this.chats, chatdata);\n            }\n            catch (error) {\n                alert(this.getErrorMessage(error));\n            }\n        });\n    }\n    getChats(callback) {\n        const qry = (0, firestore_1.query)(this.chats, (0, firestore_1.where)('room', '==', this.room));\n        this.unsubscribe = (0, firestore_1.onSnapshot)(qry, (docSnap) => {\n            docSnap.docChanges().forEach((item) => {\n                if (item.type === \"added\") {\n                    callback(item.doc.data());\n                }\n            });\n        });\n    }\n    updateRoom(room) {\n        this.room = room;\n        if (this.unsubscribe) {\n            this.unsubscribe();\n        }\n    }\n    updateName(username) {\n        this.username = username;\n        localStorage.setItem(\"username\", username);\n    }\n}\nexports.ChatRoom = ChatRoom;\n\n\n//# sourceURL=webpack://l40chatroom/./src/ChatRoom.ts?\n}");
 
 /***/ },
 
@@ -289,7 +179,7 @@ eval("{\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _argumen
 (__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("{\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.MessageUI = void 0;\nconst date_fns_1 = __webpack_require__(/*! date-fns */ \"./node_modules/date-fns/index.cjs\");\nclass MessageUI {\n    constructor(ul) {\n        this.ul = ul;\n    }\n    clearli() {\n        this.ul.innerHTML = \"\";\n    }\n    renderli(data) {\n        const when = (0, date_fns_1.formatDistance)(data.createdAt.toDate(), new Date(), { addSuffix: true });\n        const htmllitag = `\n            <li class=\"list-group-item\">\n                <span class=\"username\">${data.username}</span>\n                <span class=\"message\">${data.message}</span>\n                <div class=\"time\">${when}</div>\n            </li>\n        `;\n        this.ul.innerHTML += htmllitag;\n    }\n    userInfo(data) {\n        console.log(data);\n        const uid = data.uid;\n        const email = data.email;\n        const fullname = data.displayName;\n        const photourl = data.photoURL;\n        const createdtime = data.metadata.creationTime;\n        const formatteddate = (0, date_fns_1.formatDistance)(new Date(createdtime), \"dd MMM yyyy\");\n        const html = `\n            <li class=\"list-group-item\"><img src=\"${photourl}\" width=\"50\" alt=\"Profile Picture\" /></li>\n            <li class=\"list-group-item\">UID : ${uid}</li>\n            <li class=\"list-group-item\">Display Name : ${fullname}</li>\n            <li class=\"list-group-item\">Email : ${email}</li>\n            <li class=\"list-group-item\">Created At : ${formatteddate}</li>\n        `;\n        this.ul.innerHTML = html;\n    }\n}\nexports.MessageUI = MessageUI;\n\n\n//# sourceURL=webpack://l40chatroom/./src/MessageUI.ts?\n}");
+eval("{\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.MessageUI = void 0;\nconst date_fns_1 = __webpack_require__(/*! date-fns */ \"./node_modules/date-fns/index.cjs\");\nclass MessageUI {\n    constructor(ul) {\n        this.ul = ul;\n    }\n    clearli() {\n        this.ul.innerHTML = \"\";\n    }\n    renderli(data) {\n        const when = (0, date_fns_1.formatDistance)(data.createdAt.toDate(), new Date(), { addSuffix: true });\n        const htmllitag = `\n            <li class=\"list-group-item\">\n                <span class=\"username\">${data.username}</span>\n                <span class=\"message\">${data.message}</span>\n                <div class=\"time\">${when}</div>\n            </li>\n        `;\n        this.ul.innerHTML += htmllitag;\n    }\n    userInfo(data) {\n        var _a, _b, _c;\n        console.log(data);\n        const uid = data.uid;\n        const email = (_a = data.email) !== null && _a !== void 0 ? _a : \"No Email\";\n        const fullname = (_b = data.displayName) !== null && _b !== void 0 ? _b : \"Anonymous\";\n        const photourl = (_c = data.photoURL) !== null && _c !== void 0 ? _c : \"https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp\";\n        const createdtime = data.metadata.creationTime;\n        const formatteddate = (0, date_fns_1.formatDistance)(new Date(createdtime), \"dd MMM yyyy\");\n        const html = `\n            <li class=\"list-group-item\"><img src=\"${photourl}\" width=\"50\" alt=\"Profile Picture\" /></li>\n            <li class=\"list-group-item\">UID : ${uid}</li>\n            <li class=\"list-group-item\">Display Name : ${fullname}</li>\n            <li class=\"list-group-item\">Email : ${email}</li>\n            <li class=\"list-group-item\">Created At : ${formatteddate !== null && formatteddate !== void 0 ? formatteddate : \"\"}</li>\n        `;\n        this.ul.innerHTML = html;\n    }\n}\nexports.MessageUI = MessageUI;\n\n\n//# sourceURL=webpack://l40chatroom/./src/MessageUI.ts?\n}");
 
 /***/ },
 
@@ -300,7 +190,7 @@ eval("{\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexp
 (__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("{\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\n__webpack_require__(/*! ../css/style.css */ \"./css/style.css\");\nconst ChatRoom_1 = __webpack_require__(/*! ./ChatRoom */ \"./src/ChatRoom.ts\");\nconst MessageUI_1 = __webpack_require__(/*! ./MessageUI */ \"./src/MessageUI.ts\");\nconst chatsidebar = document.querySelector(\".chat-sidebars\");\nconst newnameform = document.querySelector(\".new-nameform\");\nconst newchatform = document.querySelector(\".new-chatform\");\nconst chatlistgroup = document.querySelector(\".chat-lists\");\nconst updatemsg = document.querySelector(\".update-msg\");\nconst profilename = document.querySelector(\"#profilename\");\nconst username = localStorage.username ? localStorage.username : \"Guest\";\nconst chatroomObj = new ChatRoom_1.ChatRoom(\"general\", username);\nconst messageuiObj = new MessageUI_1.MessageUI(chatlistgroup);\nconst callback = (chatDoc) => {\n    console.log(\"data : \", chatDoc);\n    messageuiObj.renderli(chatDoc);\n};\nchatroomObj.getChats(callback);\nnewchatform.addEventListener('submit', e => {\n    e.preventDefault();\n    const message = newchatform.message.value.trim();\n    chatroomObj.addChat(message)\n        .then(() => newchatform.reset())\n        .catch(err => console.error(err));\n});\nchatsidebar.addEventListener('click', e => {\n    if (e.target instanceof HTMLButtonElement) {\n        messageuiObj.clearli();\n        chatroomObj.updateRoom(e.target.getAttribute('id'));\n        chatroomObj.getChats(data => messageuiObj.renderli(data));\n    }\n});\nnewnameform.addEventListener('submit', e => {\n    e.preventDefault();\n});\n\n\n//# sourceURL=webpack://l40chatroom/./src/app.ts?\n}");
+eval("{\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst ChatRoom_1 = __webpack_require__(/*! ./ChatRoom */ \"./src/ChatRoom.ts\");\nconst MessageUI_1 = __webpack_require__(/*! ./MessageUI */ \"./src/MessageUI.ts\");\nconst chatsidebar = document.querySelector(\".chat-sidebars\");\nconst newnameform = document.querySelector(\".new-nameform\");\nconst newchatform = document.querySelector(\".new-chatform\");\nconst chatlistgroup = document.querySelector(\".chat-lists\");\nconst updatemsg = document.querySelector(\".update-msg\");\nconst profilename = document.querySelector(\"#profilename\");\nconst username = localStorage.username ? localStorage.username : \"Guest\";\nconst chatroomObj = new ChatRoom_1.ChatRoom(\"general\", username);\nconst messageuiObj = new MessageUI_1.MessageUI(chatlistgroup);\nconst callback = (chatDoc) => {\n    console.log(\"data : \", chatDoc);\n    messageuiObj.renderli(chatDoc);\n};\nchatroomObj.getChats(callback);\nnewchatform.addEventListener('submit', e => {\n    e.preventDefault();\n    const message = newchatform.message.value.trim();\n    chatroomObj.addChat(message)\n        .then(() => newchatform.reset())\n        .catch(err => console.error(err));\n});\nchatsidebar.addEventListener('click', e => {\n    if (e.target instanceof HTMLButtonElement) {\n        messageuiObj.clearli();\n        chatroomObj.updateRoom(e.target.getAttribute('id'));\n        chatroomObj.getChats(data => messageuiObj.renderli(data));\n    }\n});\nnewnameform.addEventListener('submit', e => {\n    e.preventDefault();\n    console.log(e);\n    const newname = document.querySelector('#name').value.trim();\n    chatroomObj.updateName(newname);\n    newnameform.reset();\n});\n\n\n//# sourceURL=webpack://l40chatroom/./src/app.ts?\n}");
 
 /***/ },
 
@@ -3705,7 +3595,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		const module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
+/******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
@@ -3724,16 +3614,6 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = (module) => {
-/******/ 		const getter = module && module.__esModule ?
-/******/ 			() => (module['default']) :
-/******/ 			() => (module);
-/******/ 		__webpack_require__.d(getter, { a: getter });
-/******/ 		return getter;
-/******/ 	};
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	// define getter/value functions for harmony exports
 /******/ 	__webpack_require__.d = (exports, definition) => {
@@ -3763,9 +3643,6 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /******/ 		Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
-/******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	__webpack_require__.nc = undefined;
 /******/ 	
 /************************************************************************/
 /******/ 	

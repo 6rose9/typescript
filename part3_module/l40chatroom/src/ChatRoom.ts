@@ -16,6 +16,10 @@ export class ChatRoom {
 
     constructor(private room: string, private username: string) { }
 
+    private getErrorMessage(error:unknown):string{
+       return error instanceof Error ? error.message : "Unknown Error";  
+    }
+
     // create chat message
     async addChat(message: string): Promise<void> {
         const now = new Date();
@@ -28,9 +32,13 @@ export class ChatRoom {
 
         try {
             await addDoc(this.chats, chatdata);
-        } catch (error) {
-            console.error("Error adding chat:", error);
-            throw error;
+        } catch (error:unknown) {
+            // console.error("Error adding chat:", error);
+            // const message = error instanceof Error ? error.message : "Unknown error";
+            // throw error;
+
+            // throw this.getErrorMessage(error);
+            alert(this.getErrorMessage(error));
         }
     }
 
@@ -68,4 +76,6 @@ export class ChatRoom {
         //     resolve();
         // });
     }
+
+    
 }

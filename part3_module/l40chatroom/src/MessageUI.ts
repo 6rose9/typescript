@@ -35,9 +35,9 @@ export class MessageUI {
         console.log(data);
 
         const uid = data.uid;
-        const email = data.email;
-        const fullname = data.displayName;
-        const photourl = data.photoURL;
+        const email = data.email ?? "No Email";
+        const fullname = data.displayName ?? "Anonymous";
+        const photourl = data.photoURL ?? "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp";
         const createdtime = data.metadata.creationTime;
 
         const formatteddate = formatDistance(new Date(createdtime), "dd MMM yyyy");
@@ -47,7 +47,7 @@ export class MessageUI {
             <li class="list-group-item">UID : ${uid}</li>
             <li class="list-group-item">Display Name : ${fullname}</li>
             <li class="list-group-item">Email : ${email}</li>
-            <li class="list-group-item">Created At : ${formatteddate}</li>
+            <li class="list-group-item">Created At : ${formatteddate ?? ""}</li>
         `;
 
         this.ul.innerHTML = html;

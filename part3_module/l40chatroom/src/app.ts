@@ -1,14 +1,14 @@
-import "../css/style.css";
 import { ChatRoom, ChatMessage } from "./ChatRoom";
 import { MessageUI } from "./MessageUI";
 
 // get UI
-const chatsidebar = document.querySelector(".chat-sidebars") as HTMLElement;
-const newnameform = document.querySelector(".new-nameform") as HTMLFormElement;
-const newchatform = document.querySelector(".new-chatform") as HTMLFormElement;
-const chatlistgroup = document.querySelector(".chat-lists") as HTMLElement;
-const updatemsg = document.querySelector(".update-msg") as HTMLElement;
-const profilename = document.querySelector("#profilename") as HTMLElement;
+// const chatsidebar = document.querySelector(".chat-sidebars") as HTMLElement;
+const chatsidebar = document.querySelector<HTMLElement>(".chat-sidebars");
+const newnameform = document.querySelector<HTMLFormElement>(".new-nameform");
+const newchatform = document.querySelector<HTMLFormElement>(".new-chatform");
+const chatlistgroup = document.querySelector<HTMLElement>(".chat-lists");
+const updatemsg = document.querySelector<HTMLElement>(".update-msg");
+const profilename = document.querySelector<HTMLElement>("#profilename");
 
 const username = localStorage.username ? localStorage.username : "Guest";
 
@@ -38,18 +38,18 @@ newchatform.addEventListener('submit', e => {
 });
 
 // change chat room
-chatsidebar.addEventListener('click',e=>{
+chatsidebar.addEventListener('click', e => {
 
-    if(e.target instanceof HTMLButtonElement){
+    if (e.target instanceof HTMLButtonElement) {
         // console.log("i am btn");
         // console.log(e.target.getAttribute('id'));
 
         messageuiObj.clearli();
         chatroomObj.updateRoom(e.target.getAttribute('id'));
-        chatroomObj.getChats(data=>messageuiObj.renderli(data));
+        chatroomObj.getChats(data => messageuiObj.renderli(data));
     }
 
-}); 
+});
 
 
 // get chat & render li 
@@ -61,12 +61,14 @@ chatsidebar.addEventListener('click',e=>{
 newnameform.addEventListener('submit', e => {
     e.preventDefault();
 
-    //const newname = newnameform.name.value.trim();
+    console.log(e);
+
+    const newname= document.querySelector<HTMLInputElement>('#name').value.trim();
     // console.log(newname);
 
     // method 1
-    // chatroomObj.updateName(newname);
-    // newnameform.reset();
+    chatroomObj.updateName(newname);
+    newnameform.reset();
 
     // method 2
     // chatroomObj.updateName(newname)
