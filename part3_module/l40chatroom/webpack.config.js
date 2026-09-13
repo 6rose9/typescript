@@ -35,7 +35,8 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname,"public"), // multi pages application, we need to set the static folder to public
-    hot: true,
+    hot: true, // Enables live reload/HMR
+    open: true, // Opens the browser after server had been started
     port: 3000,
   },
 };

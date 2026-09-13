@@ -11,7 +11,7 @@ const msguiObj = new MessageUI(ulele);
 
 authObj.getUser((data)=>{
     if(data){
-        console.log(data);
+        // console.log(data);
         msguiObj.userInfo(data);
     }
 })

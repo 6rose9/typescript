@@ -152,7 +152,7 @@ export class Authorize {
                 // Redirect to sign.html
                 // window.location.href = "../signin.html";
 
-                this.redirectTo("signin.html");
+                this.redirectTo("../signin.html");
             }
         });
 

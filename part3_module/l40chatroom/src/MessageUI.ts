@@ -32,15 +32,17 @@ export class MessageUI {
     // user profile
     userInfo(data: User) {
 
-        console.log(data);
+        // console.log(data);
 
         const uid = data.uid;
         const email = data.email ?? "No Email";
         const fullname = data.displayName ?? "Anonymous";
         const photourl = data.photoURL ?? "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp";
         const createdtime = data.metadata.creationTime;
-
-        const formatteddate = formatDistance(new Date(createdtime), "dd MMM yyyy");
+        const createdDate = createdtime ? new Date(createdtime) : null;
+        const formatteddate = createdDate && !Number.isNaN(createdDate.getTime())
+            ? formatDistance(createdDate, new Date(), { addSuffix: true })
+            : "Unknown";
 
         const html = `
             <li class="list-group-item"><img src="${photourl}" width="50" alt="Profile Picture" /></li>

@@ -1,6 +1,6 @@
 import { db } from "./firebaseConfig";
 import { addDoc, collection, onSnapshot, query, Timestamp, Unsubscribe, where } from "firebase/firestore";
-
+import { FirebaseError } from "firebase/app";
 export interface ChatMessage {
     message: string;
     username: string;
@@ -16,8 +16,16 @@ export class ChatRoom {
 
     constructor(private room: string, private username: string) { }
 
-    private getErrorMessage(error:unknown):string{
-       return error instanceof Error ? error.message : "Unknown Error";  
+    private getErrorMessage(error: unknown): string {
+        if (error instanceof FirebaseError) {
+            return `Firebase Error: ${error.message}`;
+        }
+
+        if (error instanceof Error) {
+            return `Error: ${error.message}`;
+        }
+
+        return "An unknown error occurred.";
     }
 
     // create chat message
@@ -32,7 +40,7 @@ export class ChatRoom {
 
         try {
             await addDoc(this.chats, chatdata);
-        } catch (error:unknown) {
+        } catch (error: unknown) {
             // console.error("Error adding chat:", error);
             // const message = error instanceof Error ? error.message : "Unknown error";
             // throw error;
@@ -77,5 +85,5 @@ export class ChatRoom {
         // });
     }
 
-    
+
 }

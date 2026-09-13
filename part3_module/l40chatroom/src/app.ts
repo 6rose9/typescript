@@ -10,7 +10,14 @@ const chatlistgroup = document.querySelector<HTMLElement>(".chat-lists");
 const updatemsg = document.querySelector<HTMLElement>(".update-msg");
 const profilename = document.querySelector<HTMLElement>("#profilename");
 
+if(!chatsidebar || !newnameform || !newchatform || !chatlistgroup || !updatemsg || !profilename) {
+    throw new Error("One or more required elements are missing from the DOM.");
+}
+
+// get username from local storage
 const username = localStorage.username ? localStorage.username : "Guest";
+console.log("username : ", username);
+profilename.textContent = username;
 
 // instance Chatroom obj & MesssageUI
 const chatroomObj = new ChatRoom("general", username);
